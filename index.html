@@ -21,75 +21,88 @@
     <div class="container">
       <header class="main_header">
         <nav class="navbar">
+          <input type="checkbox" id="mobile_menu_toggle" hidden />
           <a class="navbar_logo" href="#"
             ><span style="color: #4d5ae5">WEB</span>STUDIO</a
           >
           <div class="navbar_menu" id="navbar_menu">
-            <ul class="navbar_list" id="navbar_list_menu">
+            <ul class="navbar_list">
               <li class="navbar_item">
-                <a class="navbar_link" href="#">Studio</a>
+                <a class="navbar_link" href="#team">Studio</a>
               </li>
               <li class="navbar_item">
-                <a class="navbar_link" href="#">Portfolio</a>
+                <a class="navbar_link" href="#portfolio">Portfolio</a>
               </li>
               <li class="navbar_item">
-                <a class="navbar_link" href="#">Contacts</a>
+                <a class="navbar_link" href="#contacts">Contacts</a>
               </li>
             </ul>
-            <address class="navbar_contacts" id="navbar_list_menu">
+            <address class="navbar_contacts">
               <a href="mailto:info@devstudio.com">info@devstudio.com</a>
               <a href="tel:+110001111111">+11 (000) 111-11-11</a>
             </address>
-            <div class="navbar_burger" id="navbar_burger_button">
+            <label
+              for="mobile_menu_toggle"
+              class="navbar_burger"
+              id="navbar_burger_button"
+            >
               <svg>
                 <use href="./images/icons.svg#burger-menu"></use>
               </svg>
-            </div>
+            </label>
           </div>
           <div class="sidebar_menu" id="sidebar_menu">
-            <div class="sidebar_modal_close">
-              <svg class="sidebar_icon close_icon" style="fill: #e7e9fc">
+            <label for="mobile_menu_toggle" class="sidebar_modal_close">
+              <svg class="close_icon">
                 <use href="./images/form_icons.svg#close"></use>
               </svg>
-            </div>
-            <ul class="sidebar_list" id="sidebar_list_menu">
+            </label>
+            <ul class="sidebar_list">
               <li class="sidebar_item">
-                <a class="sidebar_link" href="#">Studio</a>
+                <a class="sidebar_link" href="#team">Studio</a>
               </li>
               <li class="sidebar_item">
-                <a class="sidebar_link" href="#">Portfolio</a>
+                <a class="sidebar_link" href="#portfolio">Portfolio</a>
               </li>
               <li class="sidebar_item">
-                <a class="sidebar_link" href="#">Contacts</a>
+                <a class="sidebar_link" href="#contacts">Contacts</a>
               </li>
             </ul>
             <div class="sidebar_footer">
-              <address class="sidebar_contacts" id="sidebar_list_menu">
+              <address class="sidebar_contacts">
                 <a href="mailto:info@devstudio.com">info@devstudio.com</a>
                 <a href="tel:+110001111111">+11 (000) 111-11-11</a>
               </address>
-              <div class="sidebar_icons">
-                <div class="sidebar_icon_box">
-                  <svg class="sidebar_icon">
-                    <use href="./images/icons.svg#instagram"></use>
-                  </svg>
-                </div>
-                <div class="sidebar_icon_box">
-                  <svg class="sidebar_icon">
-                    <use href="./images/icons.svg#twitter"></use>
-                  </svg>
-                </div>
-                <div class="sidebar_icon_box">
-                  <svg class="sidebar_icon">
-                    <use href="./images/icons.svg#facebook"></use>
-                  </svg>
-                </div>
-                <div class="sidebar_icon_box">
-                  <svg class="sidebar_icon">
-                    <use href="./images/icons.svg#linkedin"></use>
-                  </svg>
-                </div>
-              </div>
+              <ul class="sidebar_icons">
+                <li>
+                  <div class="sidebar_icon_box">
+                    <svg class="sidebar_icon">
+                      <use href="./images/icons.svg#instagram"></use>
+                    </svg>
+                  </div>
+                </li>
+                <li>
+                  <div class="sidebar_icon_box">
+                    <svg class="sidebar_icon">
+                      <use href="./images/icons.svg#twitter"></use>
+                    </svg>
+                  </div>
+                </li>
+                <li>
+                  <div class="sidebar_icon_box">
+                    <svg class="sidebar_icon">
+                      <use href="./images/icons.svg#facebook"></use>
+                    </svg>
+                  </div>
+                </li>
+                <li>
+                  <div class="sidebar_icon_box">
+                    <svg class="sidebar_icon">
+                      <use href="./images/icons.svg#linkedin"></use>
+                    </svg>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -154,10 +167,10 @@
                     name="privacy-policy"
                     required
                   />
-                  <div class="checkbox_text">
+                  <span class="checkbox_text">
                     I accept the terms and conditions of the
                     <span><a href="#">Privacy Policy </a> </span>
-                  </div>
+                  </span>
                 </label>
               </form>
 
@@ -224,7 +237,7 @@
           </ul>
         </section>
 
-        <section class="section our_team">
+        <section class="section our_team" id="team">
           <h2>Our Team</h2>
           <ul class="our_team_list">
             <li>
@@ -360,7 +373,7 @@
             </li>
           </ul>
         </section>
-        <section class="section our_portfolio">
+        <section class="section our_portfolio" id="portfolio">
           <h2>Our Portfolio</h2>
           <div class="our_portfolio_lists">
             <ul class="our_portfolio_list_top">
@@ -480,7 +493,7 @@
       </main>
     </div>
     <div class="container">
-      <footer class="main_footer">
+      <footer class="main_footer" id="contacts">
         <section class="footer_content">
           <div class="footer_content_about">
             <h4><span style="color: #4d5ae5">WEB</span>STUDIO</h4>

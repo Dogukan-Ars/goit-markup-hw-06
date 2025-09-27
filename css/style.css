@@ -94,7 +94,7 @@ a {
 }
 
 .navbar_logo {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--second-font);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.17;
@@ -110,17 +110,7 @@ a {
 }
 
 .navbar_burger {
-  background: none;
-  border: none;
-  margin-left: auto;
   cursor: pointer;
-  position: relative;
-}
-
-#navbar_burger_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .navbar_burger svg {
@@ -140,28 +130,30 @@ a {
 }
 
 .sidebar_menu {
-  display: none;
-}
-
-.sidebar-is-open {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
   overflow-y: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   height: 100vh;
   padding: 72px 16px;
-  z-index: 2;
+  z-index: 1000;
   background-color: var(--white-color);
+  transform: translateX(100%); /* başlangıçta sağa gizli */
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .sidebar_modal_close {
   position: absolute;
   top: 24px;
   right: 24px;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .sidebar_list {
@@ -238,6 +230,18 @@ a {
   height: 24px;
 }
 
+#mobile_menu_toggle:checked ~ .sidebar_menu {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0); /* görünürken sağdan kayarak gelsin */
+}
+
+#mobile_menu_toggle:checked ~ .navbar .navbar_burger {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /*** Header section end ****/
 
 /**** Main section starts ****/
@@ -251,8 +255,11 @@ a {
   align-items: center;
   gap: 48px;
   min-height: 160px;
-  background-image: linear-gradient(rgba(46, 47, 66, 0.7)),
-    url(../images/showcase-bg@2x.jpg);
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url("../images/showcase-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -290,16 +297,15 @@ a {
 
 .form_section {
   display: none;
-  position: relative;
 }
 
 .is-open {
   display: block;
-  position: absolute;
-  top: 40%;
+  position: fixed;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -45%);
-  width: 200%;
+  width: 180%;
   height: 800%;
   backdrop-filter: blur(1px);
   background: rgba(46, 47, 66, 0.4);
@@ -876,6 +882,16 @@ input[type="checkbox"] {
 
 /**** Media Query Sections Start ****/
 
+@media (min-resolution: 2x) {
+  .showcase_content {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("../images/showcase-bg@2x.jpg");
+  }
+}
+
 @media (min-width: 768px) {
   .section {
     padding: 96px 16px;
@@ -953,6 +969,10 @@ input[type="checkbox"] {
     font-style: normal;
   }
 
+  .sidebar_menu {
+    display: none;
+  }
+
   #navbar_burger_button {
     display: none;
   }
@@ -966,8 +986,11 @@ input[type="checkbox"] {
   .showcase_content {
     gap: 36px;
     min-height: 436px;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7)),
-      url(../images/showcase-bg@2x.jpg);
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("../images/showcase-bg@2x.jpg");
   }
 
   .showcase_content h1 {
@@ -988,9 +1011,9 @@ input[type="checkbox"] {
   }
 
   .is-open {
-    position: absolute;
+    position: fixed;
     width: 200%;
-    height: 300%;
+    height: 400%;
     display: block;
   }
 
@@ -1128,7 +1151,6 @@ input[type="checkbox"] {
   .navbar_menu {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-column: 1fr 1fr;
     gap: 76px;
   }
 
@@ -1163,6 +1185,7 @@ input[type="checkbox"] {
 
   .showcase_content {
     gap: 48px;
+    min-height: 600px;
   }
 
   .showcase_content h1 {
@@ -1179,20 +1202,17 @@ input[type="checkbox"] {
 
   /** Main section > Form Modal section start **/
 
-  .form_section {
-    display: none;
-  }
-
   .is-open {
-    position: absolute;
-    top: 250px;
-    height: 200%;
+    position: fixed;
+    top: 62%;
+    width: 200%;
+    height: 500%;
     display: block;
   }
 
   .form_modal {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
